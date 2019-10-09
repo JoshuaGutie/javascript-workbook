@@ -20,15 +20,23 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
-  var movedPiece = startStack.pop();
-  return endStack.push(movedPiece);
+  console.log("I am inside move piece", startStack, endStack);
+  var movedPiece = stacks[startStack].pop();
+  return stacks[endStack].push(movedPiece);
 }
 
 function isLegal(startStack, endStack) {
+  console.log("I am inside the is legal method");
   var startStackValues = stacks[startStack];
-  var endStackValue = stacks[endStack];
-  var endlength = endStackValue.length;
-  if (endStack > startStack.slice(-1)[0]) {
+  var endStackValues = stacks[endStack];
+  var endLength = endStackValues.length;
+  if (endLength == 0) {
+    return true;
+  } else if (startStack.length == 0) {
+    return false;
+  }
+  //end/stack is being sliced before the word starts to the first
+  if (endStackValues.slice(-1)[0] > startStackValues.slice(-1)[0]) {
     return true;
   } else {
     return false;
@@ -43,9 +51,11 @@ function checkForWin(startStack, endStack) {
 }
 
 function towersOfHanoi(startStack, endStack) {
-  if (1 == 1) {
-    movePiece(endStack, startStack);
+  if (isLegal(startStack, endStack)) {
+    console.log("about to move a piece");
+    movePiece(startStack, endStack);
   } else {
+    console.log("is legal return false");
     false;
   }
   if (checkForWin()) {
