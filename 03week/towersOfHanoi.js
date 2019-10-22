@@ -20,8 +20,11 @@ function printStacks() {
 }
 
 function movePiece(startStack, endStack) {
+  //make sure the function is being read
   console.log("I am inside move piece", startStack, endStack);
+  //creat a variable for the popped piece
   var movedPiece = stacks[startStack].pop();
+  //push popped piece
   return stacks[endStack].push(movedPiece);
 }
 
@@ -30,6 +33,7 @@ function isLegal(startStack, endStack) {
   var startStackValues = stacks[startStack];
   var endStackValues = stacks[endStack];
   var endLength = endStackValues.length;
+  //paramiters
   if (endLength == 0) {
     return true;
   } else if (startStack.length == 0) {
@@ -43,6 +47,7 @@ function isLegal(startStack, endStack) {
   }
 }
 function checkForWin(startStack, endStack) {
+  //if any array item aside from a is 4 == win
   if (stacks.c.length == 4 || stacks.b.length == 4) {
     return true;
   } else {
@@ -51,6 +56,7 @@ function checkForWin(startStack, endStack) {
 }
 
 function towersOfHanoi(startStack, endStack) {
+  //if isLegal = true allow piece to move
   if (isLegal(startStack, endStack)) {
     console.log("about to move a piece");
     movePiece(startStack, endStack);
@@ -58,6 +64,8 @@ function towersOfHanoi(startStack, endStack) {
     console.log("is legal return false");
     false;
   }
+  //if movePiece == win, reset the board
+
   if (checkForWin()) {
     stacks = {
       a: [4, 3, 2, 1],
