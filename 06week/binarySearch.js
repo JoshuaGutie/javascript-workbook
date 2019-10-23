@@ -1016,21 +1016,21 @@ var sortedArray = [
     // implement a function that will
     // execute a binaray search on the array 
     // to find the needle
-     function betterFind(haystack, needle){
-        //setting the value of each first letter
-              
+     function betterFind(haystack, needle)
         var halfWord = 0
         while (halfWord != needle){
-            // var currentWord = (sortedArray[Math.floor(sortedArray.length / 2)])
+            // picking a word halfway in the array
             let halfWord = (haystack[Math.floor(haystack.length / 2)])
             
             
     
-
+//pick first half
              if (needle < halfWord){
                 haystack = haystack.splice(0,haystack.length/2)
+                //pick second half
             }else if (needle>halfWord){
                 haystack = haystack.splice(haystack.length/2,haystack.length)
+                //stop program and console.log the results
             }else if(halfWord == needle){
                 console.log(sortedArray.indexOf(halfWord), halfWord);process.exit()
             } else {
@@ -1044,7 +1044,7 @@ var sortedArray = [
             
         
 
-console.log(betterFind(sortedArray, "yourself"))
+console.log(betterFind(sortedArray, "wide"))
 
 
     
