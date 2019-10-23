@@ -1017,133 +1017,27 @@ var sortedArray = [
     // execute a binaray search on the array 
     // to find the needle
      function betterFind(haystack, needle){
-        var splitNeedle = needle.split("")
-        var snLetter = 0
         //setting the value of each first letter
-                if (splitNeedle[0] == "a"){
-    snLetter = 1
-        } else if (splitNeedle[0] == "b"){
-            snLetter = 2
-        }else if (splitNeedle[0] == "c"){
-            snLetter = 3
-        }else if (splitNeedle[0] == "d"){
-            snLetter = 4
-        }else if (splitNeedle[0] == "e"){
-            snLetter = 5
-        }else if (splitNeedle[0] == "f"){
-            snLetter = 6
-        }else if (splitNeedle[0] == "g"){
-            snLetter = 7
-        }else if (splitNeedle[0] == "h"){
-            snLetter = 8
-        }else if (splitNeedle[0] == "i"){
-            snLetter = 9
-        }else if (splitNeedle[0] == "j"){
-            snLetter = 10
-        }else if (splitNeedle[0] == "k"){
-            snLetter =11
-        }else if (splitNeedle[0] == "l"){
-            snLetter =12
-        }else if (splitNeedle[0] == "m"){
-            snLetter =13
-        }else if (splitNeedle[0] == "n"){
-            snLetter =14
-        }else if (splitNeedle[0] == "o"){
-            snLetter =15
-        }else if (splitNeedle[0] == "p"){
-            snLetter =16
-        }else if (splitNeedle[0] == "q"){
-            snLetter =17
-        }else if (splitNeedle[0] == "r"){
-            snLetter =18
-        }else if (splitNeedle[0] == "s"){
-            snLetter =19
-        }else if (splitNeedle[0] == "t"){
-            snLetter =20
-        }else if (splitNeedle[0] == "u"){
-            snLetter =21
-        }else if (splitNeedle[0] == "v"){
-            snLetter =22
-        }else if (splitNeedle[0] == "w"){
-            snLetter =23
-        }else if (splitNeedle[0] == "x"){
-            snLetter =24
-        }else if (splitNeedle[0] == "y"){
-            snLetter =25
-        }else if (splitNeedle[0] == "z"){
-            snLetter =26
-        }
-        var swLetter = 0
-        while (snLetter != swLetter){
+              
+        var halfWord = 0
+        while (halfWord != needle){
             // var currentWord = (sortedArray[Math.floor(sortedArray.length / 2)])
-            let splitWord = (sortedArray[Math.floor(sortedArray.length / 2)]).split("")
-            console.log(splitWord)
-                if (splitWord[0] == "a"){
-                swLetter = 1
-            }else if ( splitWord[0] =="b"){
-                swLetter =2
-            }else if ( splitWord[0] =="c"){
-                swLetter =3
-            }else if ( splitWord[0] =="d"){
-                swLetter =4
-            }else if ( splitWord[0] =="e"){
-                swLetter =5
-            }else if ( splitWord[0] =="f"){
-                swLetter =6
-            }else if ( splitWord[0] =="g"){
-                swLetter =7
-            }else if ( splitWord[0] =="h"){
-                swLetter =8
-            }else if ( splitWord[0] =="i"){
-                swLetter =9
-            }else if ( splitWord[0] =="j"){
-                swLetter =10
-            }else if ( splitWord[0] =="k"){
-                swLetter =11
-            }else if ( splitWord[0] =="l"){
-                swLetter =12
-            }else if ( splitWord[0] =="m"){
-                swLetter =13
-            }else if ( splitWord[0] =="n"){
-                swLetter =14
-            }else if ( splitWord[0] =="o"){
-                swLetter =15
-            }else if ( splitWord[0] =="p"){
-                swLetter =16
-            }else if ( splitWord[0] =="q"){
-                swLetter =17
-            }else if ( splitWord[0] =="r"){
-                swLetter =18
-            }else if ( splitWord[0] =="s"){
-                swLetter =19
-            }else if ( splitWord[0] =="t"){
-                swLetter =20
-            }else if ( splitWord[0] =="u"){
-                swLetter =21
-            }else if ( splitWord[0] =="v"){
-                swLetter =22
-            }else if ( splitWord[0] =="w"){
-                swLetter =23
-            }else if ( splitWord[0] =="x"){
-                swLetter =24
-            }else if ( splitWord[0] =="y"){
-                swLetter =25
-            }else if ( splitWord[0] =="z"){
-                swLetter =26
-            }
-            console.log(swLetter)
-            console.log(snLetter)
+            let halfWord = (haystack[Math.floor(haystack.length / 2)])
+            
+            
+    
 
-            if(swLetter == snLetter){
-                console.log("lol")
-            } else if (snLetter < swLetter){
-                sortedArray = sortedArray.splice(0,sortedArray.length/2)
-            }else if (snLetter>swLetter){
-                sortedArray = sortedArray.splice(sortedArray.length/2,sortedArray.length)
+             if (needle < halfWord){
+                haystack = haystack.splice(0,haystack.length/2)
+            }else if (needle>halfWord){
+                haystack = haystack.splice(haystack.length/2,haystack.length)
+            }else if(halfWord == needle){
+                console.log(sortedArray.indexOf(halfWord), halfWord);process.exit()
             } else {
                 return "not an available word"
             }
         }
+        
                         console.log(sortedArray)
                         console.log(sortedArray.length, "is length")}
            
@@ -1153,7 +1047,7 @@ var sortedArray = [
 console.log(betterFind(sortedArray, "yourself"))
 
 
-
+    
 
 
     // var removed = haystack.splice(0, haystack.length/2)
