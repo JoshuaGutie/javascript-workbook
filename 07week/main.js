@@ -115,10 +115,10 @@ const makePlayer = id => {
   //adding an event listener to watch for the button to be clicked
   //when clicked it will send to a seperate function that adds the player to chosen team
   addBlue.addEventListener("click", function() {
-    makeBTeam(person.id);
+    makeBTeam(player.id);
   });
   addRed.addEventListener("click", function() {
-    makeRTeam(person.id);
+    makeRTeam(player.id);
   });
   li.appendChild(
     document.createTextNode(addedPlayer.name + " - " + addedPlayer.skillset)
@@ -132,3 +132,71 @@ const makePlayer = id => {
   console.log(listOfPlayers);
   console.log(`li ${id} was clicked!`);
 };
+
+const makeRTeam = id => {
+  const redList = document.getElementById("red");
+
+  const addPlayer = listOfPlayers.find(player => id === player.id);
+  const addedPlayer = new player(
+    addPlayer.name,
+    addPlayer.skillSet,
+    addPlayer.age
+  );
+  redTeam.push(addedPlayer);
+  const li = document.createElement("li");
+  //adding an event listener to watch for the button to be clicked
+  //when clicked it will send to a seperate function that adds the player to chosen team
+  li.appendChild(
+    document.createTextNode(addedPlayer.name + " - " + addedPlayer.skillset)
+  );
+  redList.append(li);
+
+  console.log(addedPlayer);
+  console.log(listOfPlayers);
+  console.log(`li ${id} was clicked!`);
+};
+
+const makeBTeam = id => {
+  const blueList = document.getElementById("blue");
+
+  const addPlayer = listOfPlayers.find(player => id === player.id);
+  const addedPlayer = new player(
+    addPlayer.name,
+    addPlayer.skillSet,
+    addPlayer.age
+  );
+  blueTeam.push(addedPlayer);
+  const li = document.createElement("li");
+  //adding an event listener to watch for the button to be clicked
+  //when clicked it will send to a seperate function that adds the player to chosen team
+  li.appendChild(
+    document.createTextNode(addedPlayer.name + " - " + addedPlayer.skillset)
+  );
+  blueList.append(li);
+
+  console.log(addedPlayer);
+  console.log(listOfPlayers);
+  console.log(`li ${id} was clicked!`);
+};
+
+let assert = require("assert");
+
+if (typeof describe === "function") {
+  describe("Player", function() {
+    it("should be able to become a red Player", function() {
+      if (listOfPlayers.id == 2 && redTeam.id == 2) {
+        return true;
+      }
+    });
+  });
+  it("should be able to become a player", function() {
+    if (arrOfPeople.id == 2 && listOfPlayer.id == 2) {
+      return true;
+    }
+  });
+  it("should be able to become a blue Player", function() {
+    if (listOfPlayers.id == 2 && blueTeam.id == 2) {
+      return true;
+    }
+  });
+}
